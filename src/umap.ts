@@ -62,7 +62,7 @@ import * as matrix from './matrix';
 import * as nnDescent from './nn_descent';
 import * as tree from './tree';
 import * as utils from './utils';
-import LM from 'ml-levenberg-marquardt';
+import { levenbergMarquardt as LM } from 'ml-levenberg-marquardt';
 
 export type DistanceFn = (x: Vector, y: Vector) => number;
 export type RandomFn = () => number;
@@ -1167,8 +1167,11 @@ function rDist(x: number[], y: number[]) {
  * best matches an offset exponential decay.
  */
 export function findABParams(spread: number, minDist: number) {
-  const curve = ([a, b]) => (x: number) => {
-    return 1.0 / (1.0 + a * x ** (2 * b));
+  const curve = (params: number[]) => {
+    const [a, b] = params;
+    return (x: number) => {
+      return 1.0 / (1.0 + a * x ** (2 * b));
+    };
   };
 
   const xv = utils

@@ -1,8 +1,13 @@
 {
-  "name": "umap-js",
+"name": "umap-js",
   "version": "1.4.0",
   "description": "JavaScript implementation of UMAP",
+  "author": {
+    "name": "Andy Coenen",
+    "email": "andycoenen@google.com"
+  },
   "license": "MIT",
+  "repository": "https://github.com/PAIR-code/umap-js",
   "main": "lib/umap-js.js",
   "module": "lib/umap-js.js",
   "unpkg": "lib/umap-js.min.js",

@@ -15,14 +15,16 @@ export default {
     extensions: ['.ts', '.js'],
   },
   entry: {
-    lib: path.resolve(__dirname, '../src/lib.ts'),
+    lib: path.resolve(process.cwd(), 'src/lib.ts'),
   },
   output: {
-    library: 'UMAP',
+    library: {
+      name: 'UMAP',
+      type: 'umd',
+    },
     filename: 'umap-js.js',
-    libraryTarget: 'umd',
-    path: path.resolve(__dirname, '../lib'),
-    globalObject: 'this'
+    path: path.resolve(process.cwd(), 'lib'),
+    globalObject: 'this',
   },
   optimization: { minimize: false },
 };

@@ -2,20 +2,16 @@
   "name": "umap-js",
   "version": "1.4.0",
   "description": "JavaScript implementation of UMAP",
-  "author": {
-    "name": "Andy Coenen",
-    "email": "andycoenen@google.com"
-  },
   "license": "MIT",
-  "repository": "PAIR-code/umap-js",
-  "main": "dist/index.js",
+  "main": "lib/umap-js.js",
+  "module": "lib/umap-js.js",
   "unpkg": "lib/umap-js.min.js",
   "jsdelivr": "lib/umap-js.min.js",
-  "types": "dist/index.d.ts",
+  "types": "lib/index.d.ts",
   "scripts": {
     "test": "jest",
-    "bundle": "rm -rf lib && webpack --config ./webpack/lib.config.ts && webpack --config ./webpack/lib.min.config.ts",
-    "build": "rm -rf dist && tsc && yarn bundle"
+    "bundle": "rimraf lib && webpack --config ./webpack/lib.config.ts && webpack --config ./webpack/lib.min.config.ts",
+    "build": "rimraf lib && tsc && yarn bundle"
   },
   "devDependencies": {
     "@types/jest": "^24.0.13",
